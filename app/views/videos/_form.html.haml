@@ -1,0 +1,9 @@
+= form_for @video do |f|
+  .form-group.row
+    = f.label :youtube_url, { class: 'col-sm-4 col-form-label' }
+    .col-sm-8
+      = f.text_field :youtube_url, class: 'form-control'
+  .form-group.row
+    .col-sm-4
+    .col-sm-8
+      = f.submit 'Share', class: 'btn btn-outline-success share-video'

@@ -1,0 +1,21 @@
+.video-form {
+  width: 30%;
+  border: 2px solid #eee;
+  padding: 50px 12px;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+
+  span.title {
+    font-weight: bold;
+    position: absolute;
+    top: -15px;
+    background-color: #fff;
+    padding: 0 10px;
+  }
+
+  .share-video {
+    width: 100%;
+  }
+}

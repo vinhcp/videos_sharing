@@ -13,5 +13,6 @@
  *= require bootstrap
  *= require '@fortawesome/fontawesome-free'
  *= require header
+ *= require videos
  *= require_self
  */

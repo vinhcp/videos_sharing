@@ -4,6 +4,7 @@
   .authentication-container
     - if user_signed_in?
       %span.welcome-email= "Welcome #{current_user.email}"
+      %a.btn.btn-outline-success.my-2.my-sm-0{ href: new_video_path } Share a movie
       %a.btn.btn-outline-success.my-2.my-sm-0{ href: destroy_user_session_path } Logout
     - else
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
