@@ -34,6 +34,10 @@ config/database.yml
 # Ignore IDEs
 .idea
 
+# Ignore ENV
+.env
+
+# Ignore webpack
 /public/packs
 /public/packs-test
 /node_modules

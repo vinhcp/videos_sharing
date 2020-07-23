@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 2020_07_23_130835) do
 
   create_table "videos", force: :cascade do |t|
     t.string "youtube_url"
+    t.string "youtube_embed_url"
+    t.string "youtube_title"
+    t.text "youtube_description"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

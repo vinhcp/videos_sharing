@@ -1,0 +1,14 @@
+#videos-list.col-sm-12
+  - @videos.each do |video|
+    .row.video-item
+      .col-sm-5
+        %iframe{:height => "250", :src => video.youtube_embed_url, :width => "420"}
+      .col-sm-5.video-detail
+        .title= video.youtube_title
+        %div.shared-by
+          %span Shared by
+          = video.user.email
+        %p.description= video.youtube_description.html_safe
+  = paginate @videos, theme: 'twitter-bootstrap-4',
+                   pagination_class: "pagination-sm",
+                   nav_class: "d-inline-b"

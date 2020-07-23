@@ -19,3 +19,32 @@
     width: 100%;
   }
 }
+
+#videos-list{
+  .video-item {
+    height: 250px;
+    margin: 25px 15px;
+
+    .video-detail {
+      overflow-y: scroll;
+      height: 100%;
+
+      .title{
+        color: #e65252;
+        font-weight: bold;
+      }
+
+      .shared-by{
+        font-size: 15px;
+        span{
+          font-weight: bold;
+        }
+      }
+
+      .description {
+        font-size: 15px;
+        margin-top: 15px;
+      }
+    }
+  }
+}
