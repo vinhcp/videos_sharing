@@ -1,0 +1,12 @@
+%nav#header.navbar.navbar-expand-lg.navbar-light.bg-light
+  %i.fa.fa-home.fa-2x.logo{"aria-hidden" => "true"}
+  %a.navbar-brand{ href: root_path }= @metadata[:title]
+  .authentication-container
+    - if user_signed_in?
+      %span.welcome-email= "Welcome #{current_user.email}"
+      %a.btn.btn-outline-success.my-2.my-sm-0{ href: destroy_user_session_path } Logout
+    - else
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'email'
+        = f.password_field :password, autocomplete: "current-password", placeholder: 'password'
+        = f.submit "Login / Register", { class: 'btn btn-outline-success my-2 my-sm-0' }

@@ -12,5 +12,6 @@
  *
  *= require bootstrap
  *= require '@fortawesome/fontawesome-free'
+ *= require header
  *= require_self
  */
