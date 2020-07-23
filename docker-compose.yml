@@ -1,0 +1,31 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: rails s -b 0.0.0.0 -p 3000
+    ports:
+      - 3000:3000
+    environment:
+      - RAILS_ENV=development
+      - POSTGRES_HOSTNAME=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=videos_sharing_development
+      - POSTGRES_USER=vshare
+      - POSTGRES_PASSWORD=123123
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+      - bundle_cache:/usr/local/bundle
+    stdin_open: true
+    tty: true
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=videos_sharing_development
+      - POSTGRES_USER=vshare
+      - POSTGRES_PASSWORD=123123
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+volumes:
+  bundle_cache:
