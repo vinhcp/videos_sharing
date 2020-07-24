@@ -20,6 +20,6 @@ module VideosSharing
     # the framework and any gems in your application.
 
     # Override ActionView::Base.field_error_proc to prevent broken html when having errors
-    config.action_view.field_error_proc = Proc.new { |html_tag, _| html_tag.html_safe }
+    config.action_view.field_error_proc = proc { |html_tag, _| html_tag.html_safe }
   end
 end

@@ -1,0 +1,18 @@
+AllCops:
+  TargetRubyVersion: 2.7
+  NewCops: pending
+  Exclude:
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'bin/**/*'
+    - 'lib/tasks/**/*'
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Style/ExpandPathArguments:
+  Enabled: false
