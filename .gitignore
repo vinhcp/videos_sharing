@@ -34,9 +34,6 @@ config/database.yml
 # Ignore IDEs
 .idea
 
-# Ignore ENV
-.env
-
 # Ignore specs
 /spec/cassettes
 

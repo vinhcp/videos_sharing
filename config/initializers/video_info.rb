@@ -1,1 +1,1 @@
-VideoInfo.provider_api_keys = { youtube: ENV['YOUTUBE_API_KEY'] }
+VideoInfo.provider_api_keys = { youtube: Rails.application.credentials.youtube_api_key }
