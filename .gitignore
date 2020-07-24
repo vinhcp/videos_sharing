@@ -37,6 +37,9 @@ config/database.yml
 # Ignore ENV
 .env
 
+# Ignore specs
+/spec/cassettes
+
 # Ignore webpack
 /public/packs
 /public/packs-test

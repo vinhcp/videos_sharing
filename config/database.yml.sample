@@ -11,7 +11,7 @@ development: &default
 
 test:
   <<: *default
-  database: videos_sharing_development
+  database: videos_sharing_test
 
 production:
   <<: *default

@@ -62,11 +62,12 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 
-  gem 'database_cleaner'
+  gem 'database_cleaner-active_record'
   gem 'factory_bot_rails'
-
   gem 'rspec-rails', '~> 4.0.1'
   gem 'shoulda-matchers', '~> 4.0'
+  gem 'vcr', require: false
+  gem 'webmock', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
