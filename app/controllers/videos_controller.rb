@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   PER_PAGE = 15
-  before_action :authenticate_user!, only: %i[create]
+  before_action :authenticate_user!, only: %i[create new]
 
   def index
     @videos = Video.all.order(created_at: :desc)
