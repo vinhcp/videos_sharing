@@ -1,7 +1,9 @@
 class Video < ApplicationRecord
+  YOUTUBE_REGEX = %r{\A^https:\/\/www\.youtube\.com\/watch\?v=([a-zA-Z0-9_-]*)\Z}.freeze
   belongs_to :user
 
   validates_presence_of :youtube_url
+  validates_format_of :youtube_url, with: YOUTUBE_REGEX, on: :create
 
   before_create :set_info
 

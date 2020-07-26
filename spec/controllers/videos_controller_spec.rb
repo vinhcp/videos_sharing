@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe VideosController do
   let(:user) { create(:user) }
-  # let(:video) { create(:video, user: user) }
+  let(:build_video) { build(:video) }
   let(:video) { VCR.use_cassette('youtube_metadata') { create(:video, user: user) } }
 
   describe 'GET index' do
@@ -31,14 +31,25 @@ RSpec.describe VideosController do
         sign_in user
       end
 
-      it 'share new video' do
-        VCR.use_cassette('youtube_metadata') do
+      context 'when having valid youtube url' do
+        it 'share new video' do
+          VCR.use_cassette('youtube_metadata') do
+            expect do
+              post :create, params: { video: { youtube_url: build_video.youtube_url } }
+            end.to change(Video, :count).by(1)
+            video = assigns(:video)
+            expect(video.youtube_embed_url).not_to be_nil
+            expect(response).to redirect_to(root_path)
+          end
+        end
+      end
+
+      context 'when having invalid youtube url' do
+        it 'let user enter url again' do
           expect do
-            post :create, params: { video: { youtube_url: 'https://www.youtube.com/watch?v=hE-ruL0_bxc' } }
-          end.to change(Video, :count).by(1)
-          video = assigns(:video)
-          expect(video.youtube_embed_url).not_to be_nil
-          expect(response).to redirect_to(root_path)
+            post :create, params: { video: { youtube_url: 'https://youtube.com' } }
+          end.to change(Video, :count).by(0)
+          assert_template 'videos/new'
         end
       end
     end
