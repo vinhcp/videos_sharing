@@ -7,7 +7,9 @@ describe 'Video list' do
     it 'see a list of videos' do
       VCR.use_cassette('youtube_metadata') do
         create(:video, user: user_1)
-        create(:video, user: user_2)
+      end
+      VCR.use_cassette('youtube_metadata_2') do
+        create(:video, youtube_url: 'https://www.youtube.com/watch?v=r43LhSUUGTQ', user: user_2)
       end
       visit root_path
       expect(page).to have_selector('.video-item', count: 2)

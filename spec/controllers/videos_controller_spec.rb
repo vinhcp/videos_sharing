@@ -52,6 +52,15 @@ RSpec.describe VideosController do
           assert_template 'videos/new'
         end
       end
+
+      context 'when having existing youtube url' do
+        it 'let user enter url again' do
+          expect do
+            post :create, params: { video: { youtube_url: video.youtube_url } }
+          end.to change(Video, :count).by(1)
+          assert_template 'videos/new'
+        end
+      end
     end
   end
 

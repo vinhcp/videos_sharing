@@ -32,5 +32,15 @@ describe 'Share a video' do
         expect(page).to have_content('Youtube URL is invalid')
       end
     end
+
+    context 'share existing youtube url' do
+      it 'should have error message' do
+        VCR.use_cassette('youtube_metadata') do
+          new_video = create(:video, user: user)
+          share_video(youtube_url: new_video.youtube_url)
+          expect(page).to have_content('Youtube URL has already been taken')
+        end
+      end
+    end
   end
 end
